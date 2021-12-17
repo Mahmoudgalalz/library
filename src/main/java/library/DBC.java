@@ -18,8 +18,8 @@ public class DBC {
        JFrame f;
         try{
             connect= DriverManager.getConnection(String.format("jdbc:mysql://%s:%d/%s",Host,port,DBname),USERNAME,PASSWORD);
-            f=new JFrame(); 
-            JOptionPane.showMessageDialog(f,"Database is Connected successfully");  
+            
+            
         }
          catch (SQLException e) {
             f=new JFrame();  
