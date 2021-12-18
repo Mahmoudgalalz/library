@@ -5,7 +5,18 @@
     <artifactId>library</artifactId>
     <version>lib</version>
     <packaging>jar</packaging>
-    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <showDeprecation>false</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 <dependency>

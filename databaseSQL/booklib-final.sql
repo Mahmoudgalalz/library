@@ -36,7 +36,7 @@ CREATE TABLE `author` (
 
 LOCK TABLES `author` WRITE;
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
-INSERT INTO `author` VALUES (1200,'Kro','King'),(1210,'Michael','Lopp'),(129685,'aadam','smith'),(129876,'bram','sotkar'),(147852,'oskar','waild'),(231456,'lois','carol'),(258963,'erec','elner'),(356214,'lord','biron'),(452136,'georg','eliot'),(523164,'vergenia','wolf'),(635559,'jon','melton'),(646892,'gen','osten'),(785236,'steven','sebner');
+INSERT INTO `author` VALUES (12955,'Mahmoud','Galal'),(129876,'bram','sotkar'),(147852,'oskar','waild'),(231456,'lois','carol'),(258963,'erec','elner'),(356214,'lord','biron'),(452136,'georg','eliot'),(523164,'vergenia','wolf'),(635559,'jon','melton'),(646892,'gen','osten'),(785236,'steven','sebner');
 /*!40000 ALTER TABLE `author` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `book` (
   `Publisher_code` int NOT NULL,
   PRIMARY KEY (`ISBN`),
   KEY `Publisher_code` (`Publisher_code`),
-  CONSTRAINT `book_ibfk_1` FOREIGN KEY (`Publisher_code`) REFERENCES `publisher` (`Publisher_code`)
+  CONSTRAINT `book_ibfk_1` FOREIGN KEY (`Publisher_code`) REFERENCES `publisher` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -66,32 +66,8 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (110456,'Our Souls At Night',310,60,'others',205200),(111456,'The Old Man and the Sea',450,120,'others',205200),(112233,'Lord of The Flies',300,50,'others',205200),(112456,'One Hundred Years of Solitude',200,50,'others',205200),(113456,'bi take you',100,35,'others',205200),(114456,'Fantastic Mr. Fox',260,50,'others',205200),(115456,'A Passage to India',300,60,'others',205200),(116456,'Nimona',230,40,'others',205200),(117456,'High Fidelity',365,65,'others',205200),(118456,'Beloved',150,50,'others',205200),(119456,'In Furiously Happy',355,70,'others',205200),(120456,'The Giver',325,45,'others',205200),(121456,'Mrs. Dalloway',342,50,'others',205200),(122233,'Anna Karenina',250,40,'others',205200),(132233,'Invisible Man',400,50,'others',205200),(142233,'The Library At Mount Cha',350,60,'others',205200),(153456,'To Kill a Mockingbird',400,70,'others',205200),(163456,'The Great Gatsby',500,100,'others',205200),(173456,'We Should All Be Feminists',330,50,'others',205200),(183456,'Animal Farm',200,35,'others',205200),(193456,'Tuesdays with Morrie',340,55,'others',205200),(5200145,'The art of leadership',325,400,'Business',205200),(5200545,'Grokking Algorithms',254,500,'Tech-Book',205200);
+INSERT INTO `book` VALUES (110456,'Our Souls At Night',310,60,'others',205200),(110458,'Hello World !',200,200,'Education Books',500600),(113456,'Clean Code',600,500,'Tech Books',205200),(114456,'Fantastic Mr. Fox',260,50,'others',205200),(115456,'A Passage to India',300,60,'others',205200),(119456,'In Furiously Happy',355,70,'others',205200),(121456,'Mrs. Dalloway',342,50,'others',205200),(122233,'Anna Karenina',250,40,'others',205200),(163456,'The Great Gatsby',500,100,'others',205200),(173456,'We Should All Be Feminists',330,50,'others',205200),(183456,'Animal Farm',200,35,'others',205200),(193456,'Tuesdays with Morrie',340,55,'others',205200),(5200145,'The art of leadership',325,400,'Business',205200),(5200545,'Grokking Algorithms',254,500,'Tech-Book',205200);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `phone`
---
-
-DROP TABLE IF EXISTS `phone`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `phone` (
-  `Publisher_code` int NOT NULL,
-  `Phone` varchar(11) DEFAULT NULL,
-  KEY `Publisher_code` (`Publisher_code`),
-  CONSTRAINT `phone_ibfk_1` FOREIGN KEY (`Publisher_code`) REFERENCES `publisher` (`Publisher_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `phone`
---
-
-LOCK TABLES `phone` WRITE;
-/*!40000 ALTER TABLE `phone` DISABLE KEYS */;
-/*!40000 ALTER TABLE `phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -102,10 +78,11 @@ DROP TABLE IF EXISTS `publisher`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `publisher` (
-  `name` varchar(200) NOT NULL,
-  `Publisher_code` int NOT NULL,
+  `PName` varchar(200) NOT NULL,
+  `ID` int NOT NULL,
   `city` varchar(150) DEFAULT NULL,
-  PRIMARY KEY (`Publisher_code`)
+  `Phone` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -115,7 +92,7 @@ CREATE TABLE `publisher` (
 
 LOCK TABLES `publisher` WRITE;
 /*!40000 ALTER TABLE `publisher` DISABLE KEYS */;
-INSERT INTO `publisher` VALUES ('Mahmoud Galal',205200,'Maadi'),('Zainab Saber',500600,'Cairo');
+INSERT INTO `publisher` VALUES ('Mahmoud Galal',205200,'Maadi','01119575074'),('Mahmoud Yasser',332002,'Cairp','01145819537'),('Ashraf Ahmed',400200,'Cairo','01119598746'),('Zainab Saber',500600,'Cairo','01234567891');
 /*!40000 ALTER TABLE `publisher` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-18 13:52:50
+-- Dump completed on 2021-12-18 22:30:55
