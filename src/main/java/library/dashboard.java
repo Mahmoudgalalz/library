@@ -31,10 +31,10 @@ public class dashboard extends javax.swing.JFrame {
         bookstable = new javax.swing.JTable();
         view = new javax.swing.JButton();
         title = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        page_count = new javax.swing.JTextField();
+        ISBN_field = new javax.swing.JTextField();
+        price = new javax.swing.JTextField();
+        type = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,9 +49,8 @@ public class dashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        publisher = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -69,9 +68,9 @@ public class dashboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(168, 72, 72));
 
-        bookstable.setBackground(new java.awt.Color(236, 230, 247));
+        bookstable.setBackground(new java.awt.Color(0, 0, 0));
         bookstable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        bookstable.setForeground(new java.awt.Color(140, 140, 140));
+        bookstable.setForeground(new java.awt.Color(255, 255, 255));
         bookstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -79,17 +78,18 @@ public class dashboard extends javax.swing.JFrame {
             new String [] {
                 "Title", "Type", "Page Count", "Price", "ISBN", "Publisher"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
+        bookstable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bookstable.setGridColor(new java.awt.Color(0, 0, 0));
+        bookstable.setName(""); // NOI18N
+        bookstable.setSelectionBackground(new java.awt.Color(0, 121, 218));
+        bookstable.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        bookstable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        bookstable.setShowGrid(false);
+        bookstable.setShowVerticalLines(true);
         jScrollPane1.setViewportView(bookstable);
+        bookstable.getAccessibleContext().setAccessibleName("");
+        bookstable.getAccessibleContext().setAccessibleDescription("");
 
         view.setText("View");
         view.addActionListener(new java.awt.event.ActionListener() {
@@ -98,37 +98,36 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
 
-        title.setBackground(new java.awt.Color(255, 255, 255));
         title.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 titleActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        page_count.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                page_countActionPerformed(evt);
             }
         });
 
-        jTextField2.setToolTipText("");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        ISBN_field.setToolTipText("");
+        ISBN_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                ISBN_fieldActionPerformed(evt);
             }
         });
 
-        jTextField3.setToolTipText("");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        price.setToolTipText("");
+        price.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                priceActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EduBook", "Business Book", "Tech Book", "Other" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EduBook", "Business Book", "Tech Book", "Other" }));
+        type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                typeActionPerformed(evt);
             }
         });
 
@@ -143,8 +142,18 @@ public class dashboard extends javax.swing.JFrame {
         jLabel5.setText("Type :");
 
         jButton1.setText("Insert");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertbtn(evt);
+            }
+        });
 
         jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletebtn(evt);
+            }
+        });
 
         jButton3.setText("Update");
 
@@ -167,32 +176,15 @@ public class dashboard extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(194, 75, 75));
         jPanel3.setForeground(new java.awt.Color(194, 75, 75));
 
-        jButton6.setText("jButton6");
-
-        jButton7.setText("jButton7");
-
-        jButton8.setText("jButton8");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 1069, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 52, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -214,6 +206,14 @@ public class dashboard extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        publisher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                publisherActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Publisher");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -233,29 +233,30 @@ public class dashboard extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel4)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jButton1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jButton3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(jButton2))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(31, 31, 31)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(ISBN_field, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(32, 32, 32)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(page_count, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                                .addComponent(jLabel9)
+                                                .addComponent(publisher))))
                                     .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(133, 133, 133))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(125, 125, 125)))))
+                        .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -292,23 +293,26 @@ public class dashboard extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(page_count, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ISBN_field, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel9))
                         .addGap(2, 2, 2)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(publisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addGap(42, 42, 42)
+                            .addComponent(jButton2)
+                            .addComponent(jButton3))
+                        .addGap(83, 83, 83)
                         .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -355,11 +359,15 @@ public class dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        
+        
         try{
             Connection con=DBC.getConnect(); // to establish the connection
             Statement st=con.createStatement();
             String sql="Select * from book";
             ResultSet rs=st.executeQuery(sql);
+            DefaultTableModel model = (DefaultTableModel) bookstable.getModel();
+            model.setRowCount(0);
             while(rs.next()){
                 String title=rs.getString("title");
                 String type=rs.getString("type");
@@ -369,9 +377,11 @@ public class dashboard extends javax.swing.JFrame {
                 String publisher=rs.getString("Publisher_code");
                 
                 String data[]={title,type,count,price,id,publisher};
-                DefaultTableModel model=(DefaultTableModel)bookstable.getModel();
+                model=(DefaultTableModel)bookstable.getModel();
                 model.addRow(data);
+                
             }
+            JOptionPane.showMessageDialog(this,"The Data is shown");
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(this,e);
@@ -382,21 +392,21 @@ public class dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_titleActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void page_countActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_page_countActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_page_countActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_priceActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_typeActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void ISBN_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ISBN_fieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_ISBN_fieldActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -405,6 +415,71 @@ public class dashboard extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void insertbtn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertbtn
+        
+        
+        if(ISBN_field.getText().equals("")||title.getText().equals("")||price.getText().equals("")||page_count.getText().equals("")||type.getSelectedItem().toString().equals("")|| publisher.getText().equals("")){
+                JOptionPane.showMessageDialog(this,"please Enter All Data");
+        }
+        else {
+        try{
+            Connection con=DBC.getConnect(); // to establish the connection
+            Statement st=con.createStatement();
+            PreparedStatement ps=con.prepareStatement("insert into book values (?,?,?,?,?,?)");
+            String data[] = {title.getText(),type.getSelectedItem().toString(),page_count.getText(),price.getText(),ISBN_field.getText(),publisher.getText()};
+            ps.setInt(1, Integer.parseInt(ISBN_field.getText()));
+            ps.setString(2,title.getText());
+            ps.setString(3,page_count.getText());
+            ps.setString(4, price.getText());
+            ps.setString(5, type.getSelectedItem().toString());
+            ps.setString(6, publisher.getText());
+            ps.executeUpdate();
+            DefaultTableModel model = (DefaultTableModel)bookstable.getModel();
+            model.addRow(data);
+            JOptionPane.showMessageDialog(this,"The Data is added Successfully");
+            title.setText("");
+            page_count.setText("");
+            price.setText("");
+            ISBN_field.setText("");
+            publisher.setText("");
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(this,"There's an Error happend");
+        }
+        }
+
+    }//GEN-LAST:event_insertbtn
+    
+    private void deletebtn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtn
+            
+           try
+           {
+            //for database deletion 
+            Connection con=DBC.getConnect(); // to establish the connection
+            Statement st=con.createStatement();
+            // for visual interchange 
+            
+            int row = bookstable.getSelectedRow();
+            String isbn=(String)bookstable.getModel().getValueAt(row, 4);
+            String sql="delete from book where ISBN="+isbn+";";
+            st.executeUpdate(sql);
+            DefaultTableModel model = (DefaultTableModel)bookstable.getModel();
+            model.removeRow(row);
+            JOptionPane.showMessageDialog(this,"The row is Deleted successfully");
+               
+           } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,"The row is lm28oza");
+        }
+        
+    
+
+            
+    }//GEN-LAST:event_deletebtn
+
+    private void publisherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publisherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_publisherActionPerformed
 
     public static void main(String args[]) {
         
@@ -416,15 +491,12 @@ public class dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ISBN_field;
     private javax.swing.JTable bookstable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -433,6 +505,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -444,11 +517,12 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField page_count;
+    private javax.swing.JTextField price;
+    private javax.swing.JTextField publisher;
     private javax.swing.JTextField title;
+    private javax.swing.JComboBox<String> type;
     private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
 }
