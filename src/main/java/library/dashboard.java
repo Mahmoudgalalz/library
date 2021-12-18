@@ -131,27 +131,15 @@ public class dashboard extends javax.swing.JFrame {
 
         FirstName.setBackground(new java.awt.Color(76, 76, 109));
         FirstName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        FirstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FirstNameActionPerformed(evt);
-            }
-        });
+
 
         Author_ID.setBackground(new java.awt.Color(76, 76, 109));
         Author_ID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Author_ID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Author_IDActionPerformed(evt);
-            }
-        });
+
 
         LastName.setBackground(new java.awt.Color(76, 76, 109));
         LastName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        LastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LastNameActionPerformed(evt);
-            }
-        });
+
 
         author_id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         author_id.setForeground(new java.awt.Color(51, 51, 51));
@@ -178,11 +166,7 @@ public class dashboard extends javax.swing.JFrame {
 
         jTextField15.setBackground(new java.awt.Color(76, 76, 109));
         jTextField15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
-            }
-        });
+
 
         Insert.setBackground(new java.awt.Color(76, 76, 109));
         Insert.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -301,11 +285,7 @@ public class dashboard extends javax.swing.JFrame {
         ISBN_field.setBackground(new java.awt.Color(245, 245, 245));
         ISBN_field.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ISBN_field.setForeground(new java.awt.Color(240, 84, 84));
-        ISBN_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ISBN_fieldActionPerformed(evt);
-            }
-        });
+
 
         id.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         id.setForeground(new java.awt.Color(255, 255, 255));
@@ -326,11 +306,7 @@ public class dashboard extends javax.swing.JFrame {
         price1.setBackground(new java.awt.Color(245, 245, 245));
         price1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         price1.setForeground(new java.awt.Color(240, 84, 84));
-        price1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                price1ActionPerformed(evt);
-            }
-        });
+
 
         pagecount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         pagecount.setForeground(new java.awt.Color(255, 255, 255));
@@ -372,11 +348,7 @@ public class dashboard extends javax.swing.JFrame {
         searchtext.setBackground(new java.awt.Color(245, 245, 245));
         searchtext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         searchtext.setForeground(new java.awt.Color(240, 84, 84));
-        searchtext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchtextActionPerformed(evt);
-            }
-        });
+
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -430,11 +402,7 @@ public class dashboard extends javax.swing.JFrame {
         type.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         type.setForeground(new java.awt.Color(240, 84, 84));
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tech Books", "Bussiness Books", "Education Books", "Others" }));
-        type.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                typeActionPerformed(evt);
-            }
-        });
+
 
         Clear.setBackground(new java.awt.Color(245, 245, 245));
         Clear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -608,11 +576,7 @@ public class dashboard extends javax.swing.JFrame {
         PPhone.setBackground(new java.awt.Color(252, 153, 124));
         PPhone.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         PPhone.setForeground(new java.awt.Color(25, 25, 25));
-        PPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PPhoneActionPerformed(evt);
-            }
-        });
+
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -684,29 +648,17 @@ public class dashboard extends javax.swing.JFrame {
         PCity.setBackground(new java.awt.Color(252, 153, 124));
         PCity.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         PCity.setForeground(new java.awt.Color(25, 25, 25));
-        PCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PCityActionPerformed(evt);
-            }
-        });
+
 
         PId.setBackground(new java.awt.Color(252, 153, 124));
         PId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         PId.setForeground(new java.awt.Color(25, 25, 25));
-        PId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PIdActionPerformed(evt);
-            }
-        });
+
 
         PName.setBackground(new java.awt.Color(252, 153, 124));
         PName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         PName.setForeground(new java.awt.Color(25, 25, 25));
-        PName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PNameActionPerformed(evt);
-            }
-        });
+
 
         jTextField1.setBackground(new java.awt.Color(252, 153, 124));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
